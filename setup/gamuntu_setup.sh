@@ -87,4 +87,4 @@ systemctl daemon-reload
 systemctl restart $(basename $(dirname $GETTY_OVERRIDE) | sed 's/\.d//')
 
 echo -e "${CHECKMARK} \e[1;92m Cleanup... \e[0m"
-rm -rf /ubuntu_setup.sh /var/{cache,log}/* /var/lib/apt/lists/*
+rm -rf /gamuntu_setup.sh /var/{cache,log}/* /var/lib/apt/lists/*
