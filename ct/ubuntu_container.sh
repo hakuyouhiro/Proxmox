@@ -140,7 +140,7 @@ else
   mkfs.ext4 $(pvesm path $ROOTFS) &>/dev/null
 fi
 ARCH=$(dpkg --print-architecture)
-HOSTNAME=GamesonWhale
+HOSTNAME=gamer
 TEMPLATE_STRING="local:vztmpl/${TEMPLATE}"
 if [ "$STORAGE_TYPE" == "zfspool" ]; then  
   CT_FEATURES="fuse=1,keyctl=1,mknod=1,nesting=1"
@@ -157,6 +157,7 @@ lxc.cap.drop:
 lxc.cgroup2.devices.allow: c 226:0 rwm
 lxc.cgroup2.devices.allow: c 226:128 rwm
 lxc.cgroup2.devices.allow: c 29:0 rwm
+lxc.mount.entry: /dev/uinput dev/uinput none bind,optional,create=dir
 lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dri/renderD128 dev/renderD128 none bind,optional,create=file
 EOF
