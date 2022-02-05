@@ -154,12 +154,17 @@ LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
 lxc.cgroup2.devices.allow: a
 lxc.cap.drop: 
+lxc.cgroup2.devices.allow: c 188:* rwm
+lxc.cgroup2.devices.allow: c 189:* rwm
 lxc.cgroup2.devices.allow: c 226:0 rwm
 lxc.cgroup2.devices.allow: c 226:128 rwm
 lxc.cgroup2.devices.allow: c 29:0 rwm
 lxc.mount.entry: /dev/uinput dev/uinput none bind,optional,create=dir
 lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dri/renderD128 dev/renderD128 none bind,optional,create=file
+lxc.mount.entry: /dev/serial/by-id               dev/serial/by-id         none bind,optional,create=dir
+lxc.mount.entry: /dev/ttyUSB0                    dev/ttyUSB0             none bind,optional,create=file
+lxc.mount.entry: /dev/ttyACM0                    dev/ttyACM0             none bind,optional,create=file
 EOF
 
 MOUNT=$(pct mount $CTID | cut -d"'" -f 2)
