@@ -604,18 +604,20 @@ ________________________________________________________________________________
 
 
 <details>
-<summary markdown="span">Ubuntu 21.10 LXC</summary>
+<summary markdown="span">GamUntu LXC</summary>
  
-<p align="center"><img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png" alt="Ubuntu" height="100"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tteck/Proxmox/dev/misc/images/gamuntu.png" alt="GamUntu" </p>
 
-<h1 align="center" id="heading"> Ubuntu 21.10 LXC Container </h1>
+<h1 align="center" id="heading"> GamUntu LXC Container </h1>
 
-To create a new Proxmox Ubuntu 21.10 (curl. sudo, auto login) LXC Container, run the following in the Proxmox web shell.
+To create a new Proxmox GamUntuLXC Container, run the following in the Proxmox web shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/ubuntu_container.sh)"
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/dev/ct/gamuntu_container.sh)"
 ```
-<h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
+<h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
+ 
+GamUntu is Ubuntu 21.10, Docker, ZFS Support and Hardware Acceleration all baked in! Perfect for running Games.
 
 After the script completes, If you're dissatisfied with the default settings, click on the LXC, then on the **_Resources_** tab and change the **_Memory_** and **_Cores_** settings to what you desire. Changes are immediate.
 
