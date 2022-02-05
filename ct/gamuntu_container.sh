@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 while true; do
-    read -p "This will create a New Ubuntu 21.10 LXC Container. Proceed(y/n)?" yn
+    read -p "This will create a New GamUntu LXC Container. Proceed(y/n)?" yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;
@@ -73,7 +73,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/tteck/Proxmox/dev/setup/ubuntu_setup.sh
+wget -qL https://raw.githubusercontent.com/tteck/Proxmox/dev/setup/gamuntu_setup.sh
 
 load_module overlay
 
@@ -109,7 +109,7 @@ info "Container ID is $CTID."
 echo -e "${CHECKMARK} \e[1;92m Updating LXC Template List... \e[0m"
 pveam update >/dev/null
 echo -e "${CHECKMARK} \e[1;92m Downloading LXC Template... \e[0m"
-OSTYPE=ubuntu
+OSTYPE=gamuntu
 OSVERSION=${OSTYPE}-21.10
 mapfile -t TEMPLATES < <(pveam available -section system | sed -n "s/.*\($OSVERSION.*\)/\1/p" | sort -t - -k 2 -V)
 TEMPLATE="${TEMPLATES[-1]}"
@@ -172,8 +172,8 @@ if [ "$STORAGE_TYPE" == "zfspool" ]; then
 pct push $CTID fuse-overlayfs /usr/local/bin/fuse-overlayfs -perms 755
 info "Using fuse-overlayfs."
 fi
-pct push $CTID ubuntu_setup.sh /ubuntu_setup.sh -perms 755
-pct exec $CTID /ubuntu_setup.sh
+pct push $CTID gamuntu_setup.sh /gamuntu_setup.sh -perms 755
+pct exec $CTID /gamuntu_setup.sh
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
-info "Successfully created a Ubuntu LXC Container to $CTID at IP Address ${IP}"
+info "Successfully created a GamUntu LXC Container to $CTID at IP Address ${IP}"
