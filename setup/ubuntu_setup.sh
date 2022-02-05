@@ -51,6 +51,16 @@ apt-get -qqy install \
     curl \
     sudo &>/dev/null
     
+echo -e "${CHECKMARK} \e[1;92m Setting Up Hardware Acceleration... \e[0m"  
+apt-get -y install \
+    va-driver-all \
+    ocl-icd-libopencl1 \
+    beignet-opencl-icd &>/dev/null
+    
+/bin/chgrp video /dev/dri
+/bin/chmod 755 /dev/dri
+/bin/chmod 660 /dev/dri/*
+    
 echo -e "${CHECKMARK} \e[1;92m Customizing Docker... \e[0m"
 DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
 mkdir -p $(dirname $DOCKER_CONFIG_PATH)
