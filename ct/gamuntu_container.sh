@@ -109,7 +109,7 @@ info "Container ID is $CTID."
 echo -e "${CHECKMARK} \e[1;92m Updating LXC Template List... \e[0m"
 pveam update >/dev/null
 echo -e "${CHECKMARK} \e[1;92m Downloading LXC Template... \e[0m"
-OSTYPE=gamuntu
+OSTYPE=ubuntu
 OSVERSION=${OSTYPE}-21.10
 mapfile -t TEMPLATES < <(pveam available -section system | sed -n "s/.*\($OSVERSION.*\)/\1/p" | sort -t - -k 2 -V)
 TEMPLATE="${TEMPLATES[-1]}"
@@ -140,7 +140,7 @@ else
   mkfs.ext4 $(pvesm path $ROOTFS) &>/dev/null
 fi
 ARCH=$(dpkg --print-architecture)
-HOSTNAME=gamer
+HOSTNAME=gamuntu
 TEMPLATE_STRING="local:vztmpl/${TEMPLATE}"
 if [ "$STORAGE_TYPE" == "zfspool" ]; then  
   CT_FEATURES="fuse=1,keyctl=1,mknod=1,nesting=1"
