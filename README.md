@@ -610,6 +610,8 @@ ________________________________________________________________________________
 
 <h1 align="center" id="heading"> GamUntu LXC Container </h1>
 
+GamUntu is Ubuntu 21.10, Docker, ZFS Support and Hardware Acceleration all baked in! Perfect for Gaming, or a good Docker base.
+ 
 To create a new Proxmox GamUntuLXC Container, run the following in the Proxmox web shell.
 
 ```yaml
@@ -617,7 +619,6 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/dev/ct/ga
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
  
-GamUntu is Ubuntu 21.10, Docker, ZFS Support and Hardware Acceleration all baked in! Perfect for running Games.
 
 After the script completes, If you're dissatisfied with the default settings, click on the LXC, then on the **_Resources_** tab and change the **_Memory_** and **_Cores_** settings to what you desire. Changes are immediate.
 
