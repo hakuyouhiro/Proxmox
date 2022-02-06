@@ -76,6 +76,7 @@ apt-get -y install \
 /bin/chmod 755 /dev/dri
 /bin/chmod 660 /dev/dri/*
 
+echo -e "${CHECKMARK} \e[1;92m Installing Docker... \e[0m"
 DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
 mkdir -p $(dirname $DOCKER_CONFIG_PATH)
 cat >$DOCKER_CONFIG_PATH <<'EOF'
@@ -83,8 +84,6 @@ cat >$DOCKER_CONFIG_PATH <<'EOF'
   "log-driver": "journald"
 }
 EOF
-
-echo -e "${CHECKMARK} \e[1;92m Installing Docker... \e[0m"
 sh <(curl -sSL https://get.docker.com) &>/dev/null
 
 echo -e "${CHECKMARK} \e[1;92m Installing Docker Compose... \e[0m"
