@@ -610,7 +610,7 @@ ________________________________________________________________________________
 
 <h1 align="center" id="heading"> GamUntu LXC Container </h1>
 
-GamUntu is Ubuntu 21.10, Docker, ZFS Support and Hardware Acceleration all baked in! Perfect for Gaming.
+GamUntu is Ubuntu 21.10, Docker, ZFS Support, USB Passthrough, Webmin System Administration and Hardware Acceleration all baked in! Perfect for Gaming or a Docker setup to start adding images.
  
 To create a new Proxmox GamUntuLXC Container, run the following in the Proxmox web shell.
 
