@@ -88,7 +88,7 @@ echo -e "${CHECKMARK} \e[1;92m Installing Docker... \e[0m"
 sh <(curl -sSL https://get.docker.com) &>/dev/null
 
 echo -e "${CHECKMARK} \e[1;92m Installing Docker Compose... \e[0m"
-sudo curl -L -s "https://github.com/docker/compose/releases/download/2.2.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &>/dev/null
 sudo chmod +x /usr/local/bin/docker-compose
 docker network create proxy
 
