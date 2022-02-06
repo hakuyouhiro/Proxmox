@@ -182,3 +182,6 @@ pct exec $CTID /gamuntu_setup.sh
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 info "Successfully created a GamUntu LXC Container to $CTID at IP Address ${IP}"
+echo -e "\e[1;92m Webmin should be reachable by going to the following URL.
+                  https://${IP}:10000
+\e[0m"
