@@ -49,8 +49,23 @@ echo -e "${CHECKMARK} \e[1;92m Installing Dependencies... \e[0m"
 apt-get update &>/dev/null
 apt-get -qqy install \
     curl \
-    sudo &>/dev/null
+    sudo \
+    libnet-ssleay-perl \
+    libauthen-pam-perl \
+    libio-pty-perl \
+    unzip \
+    shared-mime-info &>/dev/null
     
+echo -e "${CHECKMARK} \e[1;92m Downloading Webmin... \e[0m"
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.984_all.deb &>/dev/null
+
+echo -e "${CHECKMARK} \e[1;92m Installing Webmin... \e[0m"
+dpkg --install webmin_1.984_all.deb &>/dev/null
+
+echo -e "${CHECKMARK} \e[1;92m Setting Default Webmin usermame & password to root... \e[0m"
+/usr/share/webmin/changepass.pl /etc/webmin root root &>/dev/null
+rm -rf /root/webmin_1.984_all.deb
+   
 echo -e "${CHECKMARK} \e[1;92m Setting Up Hardware Acceleration... \e[0m"  
 apt-get -y install \
     va-driver-all \
