@@ -75,8 +75,7 @@ apt-get -y install \
 /bin/chgrp video /dev/dri
 /bin/chmod 755 /dev/dri
 /bin/chmod 660 /dev/dri/*
-    
-echo -e "${CHECKMARK} \e[1;92m Customizing Docker... \e[0m"
+
 DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
 mkdir -p $(dirname $DOCKER_CONFIG_PATH)
 cat >$DOCKER_CONFIG_PATH <<'EOF'
@@ -89,8 +88,9 @@ echo -e "${CHECKMARK} \e[1;92m Installing Docker... \e[0m"
 sh <(curl -sSL https://get.docker.com) &>/dev/null
 
 echo -e "${CHECKMARK} \e[1;92m Installing Docker Compose... \e[0m"
-curl -L "https://github.com/docker/compose/releases/download/2.2.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &>/dev/null
-chmod +x /usr/local/bin/docker-compose &>/dev/null
+sudo curl -L -s "https://github.com/docker/compose/releases/download/2.2.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+sudo chmod +x /usr/local/bin/docker-compose
+docker network create proxy
 
 echo -e "${CHECKMARK} \e[1;92m Customizing LXC... \e[0m"
 chmod -x /etc/update-motd.d/*
